@@ -1,4 +1,4 @@
-const socket = io("https://localhost:8000/", { transports: ["websocket"] });
+const socket = io("https://chat-diploy.onrender.com/", { transports: ["websocket"] });
 
 const form = document.getElementById("chatbox");
 
@@ -36,3 +36,8 @@ socket.on("receive", (data) => {
 socket.on("leave", (name) => {
     append(`${name} : Left the chat`, "left");
 });
+
+socket.on("user-online",(count)=>{
+    const online= document.getElementById("count");
+    online.innerHTML= count;
+})

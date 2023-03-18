@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const { Server } = require("socket.io");
 
-// We are making http server because this socket.io doesn't support express server...
+
 
 const http = require("http");
 const httpServer = http.createServer(app);
@@ -31,7 +31,6 @@ io.on("connection", (socket) => {
       name: users[socket.id],
     });
   });
-
 
 
   socket.on("disconnect", (message) => {
